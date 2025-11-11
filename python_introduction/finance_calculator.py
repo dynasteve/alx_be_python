@@ -1,6 +1,6 @@
-month_income = int(input("Enter your monthly income: "))
-month_expenses = int(input("Enter your total monthly expenses: "))
-monthly_savings = month_income - month_expenses
+monthly_income = int(input("Enter your monthly income: "))
+monthly_expenses = int(input("Enter your total monthly expenses: "))
+monthly_savings = monthly_income - monthly_expenses
 
 annual_int = 5/100
 proj_sav = int(monthly_savings * 12 + (monthly_savings * 12 * annual_int))
