@@ -29,11 +29,11 @@ def main():
         choice = input("Enter your choice: ")
 
         if choice == '1':
-            item = input("Input your new item to the list: ")
+            item = input("Enter the item to add: ")
             add_item(item)
 
         elif choice == '2':
-            item = input("Input the item in the list to remove: ")
+            item = input("Enter the item to remove: ")
             print(remove_item(item))
             
         elif choice == '3':
