@@ -15,8 +15,10 @@ def perform_operation(num1, num2, operation):
     """Returns the quotient of 2 values num1 and num 2"""
     if num2 == 0:
       return "Cannot divide by 0"
-    else:
+    elif num2 != 0 and type(num2) == type(5):
       return num1 / num2
+    else:
+      return "Invalid input"
     
   match operation:
     case "add":
@@ -27,6 +29,8 @@ def perform_operation(num1, num2, operation):
       return multiply(float(num1), float(num2))
     case "divide":
       return divide(float(num1), float(num2))
+    case _:
+      return "Invalid inputs"
 
 
 
