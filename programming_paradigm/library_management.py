@@ -22,8 +22,8 @@ class Book:
   def is_returned(self, check):
     self._is_returned = bool(check)
   
-  def return_book(self, checker):
-    self.is_returned = checker
+  def return_book(self):
+    self.is_returned = True
 
   def check_out_book(self, checker):
     self.is_checked_out = checker
@@ -45,14 +45,14 @@ class Library:
       if title == book.title:
         # Set the book to be checked out
         book.check_out_book(True)
-        book.return_book(False)
+        # book.return_book(False)
         # print(f"{book.title} by {book.author} has been successfully checked out")
 
   def return_book(self, title):
     for book in self._books:
       if title == book.title:
         book.check_out_book(False)
-        book.return_book(True)
+        # book.return_book(True)
         # print(f"{book.title} by {book.author} has been successfully returned")
 
   def list_available_books(self):
