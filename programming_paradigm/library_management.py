@@ -1,9 +1,10 @@
 class Book:
 
-  def __init__(self, title, author, is_checked_out = False):
+  def __init__(self, title, author, is_checked_out = False, is_returned = True):
     self.title = title
     self.author = author
     self._is_checked_out = is_checked_out
+    self._is_returned = is_returned
 
   @property
   def is_checked_out(self):
@@ -12,7 +13,20 @@ class Book:
   @is_checked_out.setter
   def is_checked_out(self, check):
     self._is_checked_out = bool(check)
+
+  @property
+  def is_returned(self):
+    return self._is_returned
   
+  @is_returned.setter
+  def is_returned(self, check):
+    self._is_returned = bool(check)
+  
+  def return_book(self, checker):
+    self.is_returned = checker
+
+  def check_out_book(self, checker):
+    self.is_checked_out = checker
 
 
 class Library:
@@ -30,13 +44,15 @@ class Library:
     for book in self._books:
       if title == book.title:
         # Set the book to be checked out
-        book.is_checked_out = True
+        book.check_out_book(True)
+        book.return_book(False)
         # print(f"{book.title} by {book.author} has been successfully checked out")
 
   def return_book(self, title):
     for book in self._books:
       if title == book.title:
-        book.is_checked_out = False
+        book.check_out_book(False)
+        book.return_book(True)
         # print(f"{book.title} by {book.author} has been successfully returned")
 
   def list_available_books(self):
